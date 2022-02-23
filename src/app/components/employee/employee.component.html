@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h1>formulario</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <table class="table table-streped">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>position</th>
+          <th>office</th>
+          <th>operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeService.employees">
+          <td>{{ employee.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
