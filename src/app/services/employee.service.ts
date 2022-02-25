@@ -10,12 +10,31 @@ export class EmployeeService {
   URL_API = 'http://localhost:4000/api/employees'
 
   employees : Employee[];
+  selectedEmployee : Employee ={
+    name: '',
+    position: '',
+    office: '',
+    salary: 0,
+
+  };
 
   constructor(private http: HttpClient) { }
 
 
   getEmployees(){
     return this.http.get<Employee[]>(this.URL_API);
+  }
+
+  createEmployee(employee: Employee){
+    return this.http.post(this.URL_API, employee);
+  }
+
+  deletedEmployee(_id: string){
+    return this.http.delete(`${this.URL_API}/${_id}`);
+  }
+
+  updateEmployee(employee: Employee){
+    return this.http.put(`${this.URL_API}/${employee._id}`, employee);
   }
 
 
